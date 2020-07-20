@@ -4,11 +4,23 @@ from flask import Flask, render_template              #(html에서 텍스트형�
 app = Flask(__name__)
 app.debug = True
 
-@app.route('/data')     #<- 플라스크에서 내가 원하는 경로 지정하는 방법
+@app.route('/')     #<- 플라스크에서 내가 원하는 경로 지정하는 방법
 def index():
     print("Success")
     # return "Test"
-    return render_template('home.html')
+    return render_template('home.html', hello="Hoya")
+
+@app.route('/about')
+def about():
+    print("Success")
+    # return "Test"
+    return render_template('about.html', hello="Hoya")
+
+@app.route('/articles')
+def articles():
+    print("Success")
+    # return "Test"
+    return render_template('articles.html', hello="Hoya")
 
 if __name__ == '__main__':
     # app.run(host = '0.0.0.0', port ='8000')
