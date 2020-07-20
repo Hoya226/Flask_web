@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template              #(html에서 텍스트형태로)템플릿을 랜더링 해주는 메소드
-
+from data import Articles
 app = Flask(__name__)
 app.debug = True
 
@@ -20,7 +20,9 @@ def about():
 def articles():
     print("Success")
     # return "Test"
-    return render_template('articles.html', hello="Hoya")
+    articles = Articles()
+    print(len(articles))
+    return render_template('articles.html', articles=articles)
 
 if __name__ == '__main__':
     # app.run(host = '0.0.0.0', port ='8000')
