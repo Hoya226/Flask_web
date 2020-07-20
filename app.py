@@ -4,19 +4,19 @@ from data import Articles
 app = Flask(__name__)
 app.debug = True
 
-@app.route('/')     #<- 플라스크에서 내가 원하는 경로 지정하는 방법
+@app.route('/', methods=['GET', 'POST'])     #<- 플라스크에서 내가 원하는 경로 지정하는 방법
 def index():
     print("Success")
     # return "Test"
     return render_template('home.html', hello="Hoya")
 
-@app.route('/about')
+@app.route('/about', methods=['GET', 'POST'])
 def about():
     print("Success")
     # return "Test"
     return render_template('about.html', hello="Hoya")
 
-@app.route('/articles')
+@app.route('/articles', methods=['GET', 'POST'])
 def articles():
     print("Success")
     # return "Test"
